@@ -33,6 +33,7 @@ namespace HierarchyDecorator
         private static HierarchyInfo[] Info = new HierarchyInfo[]    
         {
             new LayerInfo(),
+            new TagInfo(),
             new ComponentIconInfo()
         };
     

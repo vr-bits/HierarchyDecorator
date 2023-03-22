@@ -14,7 +14,7 @@ namespace HierarchyDecorator
 
             EditorGUI.LabelField (rect, LayerMask.LayerToName (instance.layer), Style.SmallDropdown);
 
-            if (settings.globalData.clickToSelectLayer)
+            if (settings.Global.clickToSelectLayer)
             {
                 Event e = Event.current;
                 bool hasClicked = rect.Contains (e.mousePosition) && e.type == EventType.MouseDown;
@@ -32,7 +32,7 @@ namespace HierarchyDecorator
                 }
 
                 GenericMenu menu = new GenericMenu ();
-                bool setChildLayers = settings.globalData.applyChildLayers;
+                bool setChildLayers = settings.Global.applyChildLayers;
 
                 foreach (System.String layer in Constants.LayerMasks)
                 {
@@ -76,12 +76,12 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings settings, GameObject instance)
         {
-            if (settings.styleData.HasStyle (instance.name) && !settings.styleData.displayLayers)
+            if (settings.Styles.HasStyle (instance.name) && !settings.Styles.displayLayers)
             {
                 return false;
             }
 
-            return settings.globalData.showLayers;
+            return settings.Global.showLayers;
         }
     }
 }

@@ -108,7 +108,7 @@ namespace HierarchyDecorator
             Rect tileStyleRect = GetElementStyleRect(rect);
 
             SerializedProperty nameProp = styleSettings.FindPropertyRelative ("name");
-            HierarchyGUI.DrawHierarchyStyle (settings.styleData[index], tileStyleRect, titleRect, nameProp.stringValue, false);
+            HierarchyGUI.DrawHierarchyStyle (settings.Styles[index], tileStyleRect, titleRect, nameProp.stringValue, false);
 
             // Draw foldout
 
@@ -157,7 +157,7 @@ namespace HierarchyDecorator
                 serializedSettings.ApplyModifiedProperties ();
                 serializedSettings.Update ();
 
-                settings.styleData[index].UpdateStyle (EditorGUIUtility.isProSkin);
+                settings.Styles[index].UpdateStyle (EditorGUIUtility.isProSkin);
             }
         }
 

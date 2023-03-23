@@ -7,7 +7,7 @@ namespace HierarchyDecorator
     {
         protected override void DrawInternal(Rect rect, GameObject instance, Settings settings)
         {
-            bool hasStyle = settings.styleData.twoToneBackground;
+            bool hasStyle = settings.Styles.twoToneBackground;
 
             // Only draw the two tone background if there's no style override
 
@@ -20,7 +20,7 @@ namespace HierarchyDecorator
             // Draw the style if one is to be applied
             // Have to make sure selection colours are drawn on top when required too
 
-            if (settings.styleData.TryGetStyleFromPrefix(instance.name, out HierarchyStyle prefix))
+            if (settings.Styles.TryGetStyleFromPrefix(instance.name, out HierarchyStyle prefix))
             {
                 Rect styleRect = (instance.transform.parent != null)
                     ? rect
@@ -41,7 +41,7 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings _settings, GameObject instance)
         {
-            return _settings.styleData.Count > 0 || _settings.styleData.twoToneBackground;
+            return _settings.Styles.Count > 0 || _settings.Styles.twoToneBackground;
         }
 
         // Standards
@@ -56,7 +56,7 @@ namespace HierarchyDecorator
         private void DrawTwoToneContent(Rect rect, GameObject instance, Settings _settings)
         {
             Rect twoToneRect = GetActualHierarchyWidth (rect);
-            var color = _settings.styleData.GetColorMode(EditorGUIUtility.isProSkin);
+            var color = _settings.Styles.GetColorMode(EditorGUIUtility.isProSkin);
 
             Handles.DrawSolidRectangleWithOutline (twoToneRect, color.GetColor(twoToneRect), Color.clear);
             HierarchyGUI.DrawStandardContent (rect, instance);

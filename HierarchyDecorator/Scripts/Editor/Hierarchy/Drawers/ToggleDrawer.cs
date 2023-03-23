@@ -37,7 +37,7 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings settings, GameObject instance)
         {
-            return settings.globalData.showActiveToggles && PrefabStageUtility.GetCurrentPrefabStage () == null;
+            return settings.Global.showActiveToggles && PrefabStageUtility.GetCurrentPrefabStage () == null;
         }
 
         protected override void DrawInternal(Rect rect, GameObject instance, Settings settings)
@@ -67,7 +67,7 @@ namespace HierarchyDecorator
 
             // Draw toggles
 
-            DrawToggles (rect, instance, !settings.globalData.activeSwiping);
+            DrawToggles (rect, instance, !settings.Global.activeSwiping);
         }
 
         private void DrawToggles(Rect rect, GameObject instance, bool canUpdate = true)
@@ -195,7 +195,7 @@ namespace HierarchyDecorator
         {
             // --- Active Swiping
 
-            if (settings.globalData.activeSwiping)
+            if (settings.Global.activeSwiping)
             {
                 // Cancel out early if we've not prepared and to allow normal functionality
 
@@ -206,7 +206,7 @@ namespace HierarchyDecorator
 
                 // If selectionOnly is enabled, check if the instance has been selected
 
-                if (settings.globalData.swipeSelectionOnly)
+                if (settings.Global.swipeSelectionOnly)
                 {
                     if (SelectedInstances.Length > 1 && !Selection.Contains (instance))
                     {
@@ -216,18 +216,18 @@ namespace HierarchyDecorator
 
                 // If states have to be the same, check for the same state as the first
 
-                if (settings.globalData.swipeSameState && targetActiveState != instance.activeSelf)
+                if (settings.Global.swipeSameState && targetActiveState != instance.activeSelf)
                 {                
                     return false;
                 }
 
                 // If depth has to be valid, calculate depth and check
 
-                if (settings.globalData.depthMode != DepthMode.All)
+                if (settings.Global.depthMode != DepthMode.All)
                 {
                     int depth = GetInstanceDepth (instance.transform);
 
-                    switch (settings.globalData.depthMode)
+                    switch (settings.Global.depthMode)
                     {
                         case DepthMode.SameDepth:
                             return depth == targetDepth;

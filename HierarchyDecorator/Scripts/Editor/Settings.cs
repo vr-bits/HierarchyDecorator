@@ -9,21 +9,15 @@ namespace HierarchyDecorator
     {
         // Fields
 
-        public GlobalData globalData = new GlobalData ();
-        public HierarchyStyleData styleData = new HierarchyStyleData ();
-
-        [SerializeField]
-        private ComponentData components = new ComponentData ();
+        [SerializeField] private GlobalData globalData = new GlobalData ();
+        [SerializeField] private HierarchyStyleData styleData = new HierarchyStyleData ();
+        [SerializeField] private ComponentData components = new ComponentData ();
 
         // Properties
 
-        public ComponentData Components
-        {
-            get
-            {
-                return components;
-            }
-        }
+        public GlobalData Global => globalData;
+        public HierarchyStyleData Styles => styleData;
+        public ComponentData Components => components;
 
         // Settings Creation
 

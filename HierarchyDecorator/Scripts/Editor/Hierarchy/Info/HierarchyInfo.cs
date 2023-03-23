@@ -110,7 +110,7 @@ namespace HierarchyDecorator
             GUIStyle labelStyle = null;
             GUIContent labelGUI = new GUIContent();
 
-            bool hasStyle = settings.styleData.TryGetStyleFromPrefix (name, out HierarchyStyle style);
+            bool hasStyle = settings.Styles.TryGetStyleFromPrefix (name, out HierarchyStyle style);
 
             if (hasStyle)
             {

@@ -16,7 +16,7 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings _settings, GameObject instance)
         {
-            return _settings.globalData.showBreadcrumbs && Scene.Scene.IsValid();
+            return _settings.Global.showBreadcrumbs && Scene.Scene.IsValid();
         }
         
         protected override void DrawInternal(Rect rect, GameObject instance, Settings _settings)
@@ -24,12 +24,12 @@ namespace HierarchyDecorator
             var scene = HierarchyCache.Target;
             var current = scene.Current;
 
-            if (_settings.styleData.TryGetStyleFromPrefix(instance.name, out HierarchyStyle prefix))
+            if (_settings.Styles.TryGetStyleFromPrefix(instance.name, out HierarchyStyle prefix))
             {
                 return;
             }
 
-            GlobalData data = _settings.globalData;
+            GlobalData data = _settings.Global;
 
             Transform transform = current.Transform;
 

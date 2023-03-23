@@ -11,12 +11,12 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings _settings, GameObject instance)
         {
-            return _settings.styleData.Count > 0 || _settings.styleData.twoToneBackground;
+            return _settings.Styles.Count > 0 || _settings.Styles.twoToneBackground;
         }
 
         protected override void DrawInternal(Rect rect, GameObject instance, Settings settings)
         {
-            if (settings.styleData.twoToneBackground || settings.styleData.HasStyle(instance.name))
+            if (settings.Styles.twoToneBackground || settings.Styles.HasStyle(instance.name))
             {
                 DrawSelection(rect, instance.transform);
             }

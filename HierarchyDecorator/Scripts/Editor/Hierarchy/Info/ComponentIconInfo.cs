@@ -35,7 +35,7 @@ namespace HierarchyDecorator
 
         protected override bool DrawerIsEnabled(Settings settings, GameObject instance)
         {
-            if (settings.styleData.HasStyle (instance.name) && !settings.styleData.displayIcons)
+            if (settings.Styles.HasStyle (instance.name) && !settings.Styles.displayIcons)
             {
                 return false;
             }
